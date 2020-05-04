@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app = "ShoppingListComponentApp" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular App</title>
+    <script src="jquery-3.1.0.min.js" charset="utf-8"></script>
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body ng-controller = "ShoppingListController as list">
+    <div class="">
+      <input type="text" ng-model = "list.itemName">
+      <input type="text" ng-model = "list.itemQuantity">
+      <button type="button" ng-click = "list.addItem();">Add Item</button>
+      <span>{{ list.lastRemoved }}</span>
+
+      <shopping-list
+      items = "list.items"
+      title = "{{ list.title }}"
+      on-remove = "list.removeItem(index);">
+
+      </shopping-list>
+    </div>
+
+    <loading-spinner></loading-spinner>
+  </body>
+</html>
